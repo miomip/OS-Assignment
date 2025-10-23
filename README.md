@@ -1,2 +1,2 @@
 # OS-Assignment
-I don't know. Go ask the teacher.
+My only complaint is Norwegian... No, and why, I'm not going to do that!
