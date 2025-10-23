@@ -40,7 +40,7 @@ def main():
     }
     if not isdir("C:\\maskin"):
         mkdir("C:\\maskin")
-    with open("C:\\maskin\\data.json", "w") as file:
+    with open(f"C:\\maskin\\{osInfo["user"]}.json", "w") as file:
         dump(data, file, indent=4)
     print("Done")
 
