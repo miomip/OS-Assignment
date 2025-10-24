@@ -34,13 +34,14 @@ def main():
         "version": osInfo["version"],
         "architecture": osInfo["architecture"],
         "user": osInfo["user"],
+        "hostname": osInfo["hostname"],
         "storageSpace": storageSpace,
         "ipAddress": ipAddress,
         "programs": programs
     }
     if not isdir("C:\\maskin"):
         mkdir("C:\\maskin")
-    with open(f"C:\\maskin\\{osInfo["user"]}.json", "w") as file:
+    with open(f"C:\\maskin\\{osInfo["hostname"]}.json", "w") as file:
         dump(data, file, indent=4)
     print("Done")
 
@@ -54,12 +55,7 @@ def getOSInfo():
             osName = "Windows"
         case "Jython":
             osName = "Java"
-
-    osRelease = release()
-    osVersion = version()
-    osArchitecture = machine()
-    user = getlogin()
-    return {"name": osName, "release": osRelease, "version": osVersion, "architecture": osArchitecture, "user": user}
+    return {"name": osName, "release": release(), "version": version(), "architecture": machine(), "user": getlogin(), "hostname": gethostname()}
 
 def getStorageAmount(disk):
     uncalculatedStorageAmount = disk_usage(f"{disk}/").free
