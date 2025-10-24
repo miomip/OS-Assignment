@@ -29,7 +29,7 @@ def main():
     programs = getPrograms(osInfo["name"])
 
     data = {
-        "name": osInfo["name"],
+        "osName": osInfo["name"],
         "release": osInfo["release"],
         "version": osInfo["version"],
         "architecture": osInfo["architecture"],
